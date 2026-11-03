@@ -126,6 +126,8 @@ namespace REL
 {
 	// NG (1.10.980 / 1.10.984) addresses for IDs that only exist in the AE Address Library.
 	// Values are RVAs found by static analysis of Fallout4.exe 1.10.984. 0 = unused by this plugin.
+	static const std::unordered_map<std::uint64_t, std::uint64_t>& NGRemap()
+	{
 	static const std::unordered_map<std::uint64_t, std::uint64_t> g_ngRemap{
 		{ 4796065, 0x2e649d8 },  // PlayerCamera::Singleton
 		{ 4798212, 0x303aca0 },  // PlayerCharacter::Singleton
@@ -148,6 +150,8 @@ namespace REL
 		{ 4797235, 0 },          // Workshop::PlacementItem (unused)
 		{ 4797261, 0 },          // Workshop::CurrentPlacementItemData (unused)
 	};
+	return g_ngRemap;
+	}
 }
 
 namespace REL
@@ -460,7 +464,7 @@ namespace REL
 	{
 		const auto mod = REX::FModule::GetExecutingModule();
 		if (IsNG()) {
-			if (const auto r = g_ngRemap.find(a_id); r != g_ngRemap.end())
+			if (const auto r = NGRemap().find(a_id); r != NGRemap().end())
 				return static_cast<std::size_t>(r->second);
 		}
 		if (std::to_underlying(m_format) < 5) {
