@@ -16,7 +16,7 @@ Install target: F4SE for NG + "Address Library for F4SE Plugins" (NG, file versi
 ## Verification done (static, against your Fallout4.exe 1.10.984)
 - 30 of 31 hook groups: every site is a real call and all sites of a group call the same function. 1 group fixed (item 4).
 - Singleton addresses were derived from call-site tracing; method cross-checked against TaskQueueInterface::Singleton (known NG ID -> same RVA).
-- Lower confidence: UIAdvanceMenusFunctionCompleteEvent event-source pointer (0x2ff1938).
+- UIAdvanceMenusFunctionCompleteEvent event-source slot 0x2ff18c8 and BSTGlobalEvent pointer 0x2e64a40 come from the game's own lazy-init code (EventSource vtable 0x2339fa0, verified by RTTI).
 
 ## Known risks (not verifiable without running the game)
 - CommonLibF4 here uses AE struct layouts. If any class the plugin touches has a different layout on NG, expect wrong behaviour or crashes.
@@ -31,3 +31,6 @@ Logs: Documents\My Games\Fallout4\F4SE\BakaFullscreenPipboy.log
 ## Diagnostic build
 Logs lines starting with NGDIAG in BakaFullscreenPipboy.log.
 Flag files (create empty, in Data\F4SE\Plugins\): `BakaFullscreenPipboy.skipinstall` skips Hooks::Install; `BakaFullscreenPipboy.nosink` skips the per-frame event listener.
+
+
+Change log: v-diag2 corrected the event-source slot (earlier value 0x2ff1938 belonged to a different singleton and made RegisterSink spin).

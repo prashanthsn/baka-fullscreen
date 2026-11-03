@@ -26,9 +26,6 @@ namespace RE
 				}
 			}
 			if (!*singleton) {
-				if (REL::IDDB::IsNG()) {
-					return nullptr;
-				}
 				*singleton = new EventSource_t(&BSTGlobalEvent::GetSingleton()->eventSourceSDMKiller);
 			}
 			return *singleton;

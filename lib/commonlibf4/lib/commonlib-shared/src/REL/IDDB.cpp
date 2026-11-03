@@ -138,11 +138,11 @@ namespace REL
 		{ 4799306, 0x2f6e620 },  // PlayerControls::Singleton
 		{ 4801732, 0x2ff1948 },  // PowerArmorGeometry::Singleton
 		{ 4803837, 0x2ff7fd8 },  // MenuCursor::Singleton
-		{ 4801719, 0x2ff1938 },  // UIAdvanceMenusFunctionCompleteEvent event source pointer
+		{ 4801719, 0x2ff18c8 },  // UIAdvanceMenusFunctionCompleteEvent event source slot (pointer var)
 		{ 4818455, 0x2166bae },  // RTDynamicCast (__RTDynamicCast import thunk)
 		{ 4847086, 0x2d83a10 },  // RTTI::GameMenuBase (type descriptor)
 		{ 4847088, 0x2d83a38 },  // RTTI::IMenu (type descriptor)
-		{ 4796078, 0 },          // BSTGlobalEvent::Singleton (unused on NG)
+		{ 4796078, 0x2e64a40 },  // BSTGlobalEvent::Singleton (pointer var)
 		{ 4494126, 0 },          // GFx::GetMember (unused)
 		{ 4494254, 0 },          // BSScaleformManager::InitMovieViewport (unused)
 		{ 4784697, 0 },          // ImageSpaceEffectHDR::UsePipboyScreenMask (unused)
