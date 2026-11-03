@@ -9,6 +9,12 @@ namespace
 		switch (a_msg->type)
 		{
 		case F4SE::MessagingInterface::kGameDataReady:
+			REX::INFO("NGDIAG: kGameDataReady (data={})", static_cast<bool>(a_msg->data));
+			if (std::filesystem::exists("Data\\F4SE\\Plugins\\BakaFullscreenPipboy.skipinstall"))
+			{
+				REX::WARN("NGDIAG: skipinstall flag present, skipping Hooks::Install");
+				break;
+			}
 			if (static_cast<bool>(a_msg->data))
 			{
 				Hooks::Install();

@@ -7,16 +7,21 @@ class Hooks
 public:
 	static void Install()
 	{
+		REX::INFO("NGDIAG: Hooks::Install begin");
 		MCM::Settings::Update();
+		REX::INFO("NGDIAG: MCM settings updated");
 
 		detail::PipboyScreenModel::Install();
+		REX::INFO("NGDIAG: PipboyScreenModel installed");
 		detail::PipboyBackgroundScreenModel::Install();
+		REX::INFO("NGDIAG: PipboyBackgroundScreenModel installed");
 
 		if (auto UI = RE::UI::GetSingleton())
 		{
 			UI->RegisterMenu("PipboyBackgroundMenu", detail::PipboyBackgroundMenu::Create);
 			UI->RegisterMenu("PipboyBackgroundMenuSmall", detail::PipboyBackgroundMenuSmall::Create);
 		}
+		REX::INFO("NGDIAG: menus registered, Install done");
 	}
 
 	static void ToggleQuickBoy()

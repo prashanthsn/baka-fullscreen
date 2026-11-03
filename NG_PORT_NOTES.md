@@ -26,3 +26,8 @@ Install target: F4SE for NG + "Address Library for F4SE Plugins" (NG, file versi
 Push this folder to a GitHub repo, run the "Build NG DLL" workflow (Actions tab), download the artifact.
 Copy the DLL over Data/F4SE/Plugins/BakaFullscreenPipboy.dll of the original 2.1.0 install (keep its other files).
 Logs: Documents\My Games\Fallout4\F4SE\BakaFullscreenPipboy.log
+
+
+## Diagnostic build
+Logs lines starting with NGDIAG in BakaFullscreenPipboy.log.
+Flag files (create empty, in Data\F4SE\Plugins\): `BakaFullscreenPipboy.skipinstall` skips Hooks::Install; `BakaFullscreenPipboy.nosink` skips the per-frame event listener.
