@@ -2,6 +2,8 @@
 #include "Scripts/Papyrus.h"
 #include "Serialization/Serialization.h"
 
+void InstallCrashDiag();
+
 namespace
 {
 	void MessageCallback(F4SE::MessagingInterface::Message* a_msg)
@@ -29,6 +31,7 @@ namespace
 F4SE_PLUGIN_LOAD(const F4SE::LoadInterface* a_f4se)
 {
 	F4SE::Init(a_f4se, { .trampoline = true, .trampolineSize = 512 });
+	InstallCrashDiag();
 
 	Serialization::Register();
 
